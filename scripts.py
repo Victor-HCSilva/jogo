@@ -52,6 +52,7 @@ def image(name_image: str = 'image.png', pos_x: int = 0, pos_y: int = 0, width: 
     imagem, retangulo = image("image.png", pos_x=300, pos_y=300, width=200, height=200)
     screen.blit(imagem, retangulo)
     """
+    
     if not isinstance(name_image, str) or not name_image:
          return "Erro: Nome da imagem inválido."
     if not isinstance(pos_x, int) or not isinstance(pos_y, int):
