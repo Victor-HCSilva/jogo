@@ -7,26 +7,8 @@ screen = pygame.display.set_mode(SCREEN)
 POSICAO = (screen.get_width() / 2, screen.get_height() / 2)
 PLAYER_POS = pygame.Vector2(POSICAO)
 
-NEGRITO = True
-ITALICO = True
-FONTE_TAMANHO = 40
-FONTE_NOME = 'arial'
-mensagem = 'ola teste !!!'
-
-try:
-    FONTE = pygame.font.SysFont(FONTE_NOME, FONTE_TAMANHO, bold=NEGRITO, italic=ITALICO)
-except pygame.error:
-    print(f"Erro ao carregar a fonte: {FONTE_NOME}. Usando a fonte padrão.")
-    FONTE = pygame.font.Font(None, FONTE_TAMANHO, bold=NEGRITO, italic=ITALICO)
-
-texto_formatado = FONTE.render(mensagem, True, WHITE)
-text_rect = texto_formatado.get_rect(topleft=(500, 500))  # Posição do texto
-
-message = '''
-Ai nobras apelaumm
-'''
-    
-teste, teste1 = write_italic(font_size=50, message=message)
+message = '''Ai nobras apelaumm'''
+complemento,frase  = write(font_size=50, message=message,posicao=(600,30) )
 
 # Variáveis do jogo
 clock = pygame.time.Clock()
@@ -60,8 +42,7 @@ while running:
     # Desenha elementos do jogo
     pygame.draw.circle(screen, RED, PLAYER_POS, 40)
     circles(screen, color=RED, pos=(50, 50), size=30, quantity=3)
-    screen.blit(texto_formatado, text_rect)  # Desenha o texto na tela
-    screen.blit(teste, teste1) 
+    screen.blit(complemento, frase) 
     # Atualiza a tela
     pygame.display.flip()
 

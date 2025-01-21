@@ -26,19 +26,19 @@ FONTE_TAMANHO = 40
 FONTE_NOME = 'arial'
 mensagem = 'ola teste !!!'
 
-def write_italic(font_size:int=20, bold:bool=True, italic:bool=True, message:str='None', color_text:tuple=(250,0,0)):
+def write(font_size:int=20, bold:bool=True, italic:bool=True, message:str='None', color_text:tuple=(250,0,0), posicao:tuple=(500,500)):
     '''21/01/2025
     Escreve na tela, de forma rápida
     Como usar: 
     Inicio do código:
 
-    var1,var2 = write_italic(font_size=50,message='Estou usando a função de escrever!!')
+    var1,var2 = write(font_size=50,message='Estou usando a função de escrever!!')
     Final do loop 
     screen.blit(var1,var2)
     '''
     FONTE = pygame.font.Font(None, font_size)
     texto_formatado = FONTE.render(message, True, color_text)
-    text_rect = texto_formatado.get_rect(topleft=(500, 500))  # Posição do texto
+    text_rect = texto_formatado.get_rect(topleft=posicao)  # Posição do texto
 
     if mensagem:
         return texto_formatado, text_rect
