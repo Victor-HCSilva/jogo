@@ -1,1 +1,14 @@
+# Arquivos de build e logs
+*.log
+*.bak
+*.pyc
+__pycache__/
+*.swp
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de texto especificos
 Explain.txt
+AnotherFile.txt
