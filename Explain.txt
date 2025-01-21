@@ -1,0 +1,10 @@
+
+- O arquivo import-me deve ficar com todas as importações
+e serem importadas para a função main
+
+- vars.py são as variaveis do jogo
+
+- conts.py são para variaveis imutáveis 
+
+- Scripts onde vão ficar as funções e classes que serão necessárias
+no projeto (pasta: Scripts).
