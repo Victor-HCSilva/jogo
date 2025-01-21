@@ -8,3 +8,6 @@ e serem importadas para a função main
 
 - Scripts onde vão ficar as funções e classes que serão necessárias
 no projeto (pasta: Scripts).
+
+
+- Pergunta como salvar as variaveis e depois usa-las novamente

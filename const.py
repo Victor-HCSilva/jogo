@@ -26,7 +26,7 @@ SCREEN=(WIDTH, HEIGTH)
 # objects
 OBJECT = pygame.draw
 
-#FONTS
+#FONTS; TEXT
 fonts = {
     'arial': 'arial',
     'times_new_roman': 'times new roman',
@@ -41,3 +41,8 @@ fonts = {
     'helvetica': 'helvetica',
     'bookman_old_style': 'bookman old style'
 }
+
+TEXT_POSITION = (30,30)
+MAX_SIZE = 80
+MED_SIZE = 60
+MIN_SIZE = 30
