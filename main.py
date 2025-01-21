@@ -3,12 +3,12 @@ from import_me import *
 
 pygame.init()
 screen = pygame.display.set_mode(SCREEN)
-
+#imagem_personagem,retangulo_personagem = image("images/treated_images/image1.png", pos_x=300,pos_y=300, width=1000, height=550)
 POSICAO = (screen.get_width() / 2, screen.get_height() / 2)
 PLAYER_POS = pygame.Vector2(POSICAO)
 
 #message = f'''PONTOS: {score.show_score_()}'''
-complemento,frase  = write(font_size=MIN_SIZE, message=message,posicao=TEXT_POSITION, color_text=WHITE )
+#complemento,frase  = write(font_size=MIN_SIZE, message=message,posicao=TEXT_POSITION, color_text=WHITE )
 
 running = True
 
@@ -31,12 +31,11 @@ while running:
     if keys[pygame.K_d]:
         PLAYER_POS.x += SPEED * CLOCK
     
-    # Desenha elementos do jogo
+    
     pygame.draw.circle(screen, RED, PLAYER_POS, 40)
-    #circles(screen, color=RED, pos=(50, 50), size=30, quantity=3)
-    screen.blit(complemento, frase) 
-    # Atualiza a tela
+    #screen.blit(complemento, frase) 
+    #screen.blit(imagem_personagem, retangulo_personagem)
     pygame.display.flip()
 
-score.create_()
+#score.create_()
 pygame.quit()

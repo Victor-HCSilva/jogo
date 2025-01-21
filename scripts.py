@@ -43,6 +43,36 @@ def write(font_size:int=20, bold:bool=True, italic:bool=True, message:str='None'
     if mensagem:
         return texto_formatado, text_rect
 
+import pygame
+
+def image(name_image: str = 'image.png', pos_x: int = 0, pos_y: int = 0, width: int = 100, height: int = 100, redimensionar:bool=True):
+    """
+    Carrega, posiciona e redimensiona uma imagem. Retorna a imagem e seu retângulo ou mensagens de erro.
+    Uso:
+    imagem, retangulo = image("image.png", pos_x=300, pos_y=300, width=200, height=200)
+    screen.blit(imagem, retangulo)
+    """
+    if not isinstance(name_image, str) or not name_image:
+         return "Erro: Nome da imagem inválido."
+    if not isinstance(pos_x, int) or not isinstance(pos_y, int):
+        return "Erro: Posições X e Y devem ser números inteiros."
+    if not isinstance(width, int) or not isinstance(height, int) or width <= 0 or height <= 0:
+        return "Erro: Largura e altura devem ser números inteiros positivos."
+
+    try:
+        imagem = pygame.image.load(name_image)
+        retangulo = imagem.get_rect()
+        retangulo.x = pos_x
+        retangulo.y = pos_y
+
+        if redimensionar:
+            imagem_redimensionada = pygame.transform.scale(imagem, (width, height))
+            return imagem_redimensionada, retangulo
+        
+        return imagem, retangulo
+    except pygame.error as e:
+        return f"Erro ao carregar a imagem: {e}"
+    
 if __name__=='__main__':
     ...
     
