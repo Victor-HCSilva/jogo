@@ -18,14 +18,6 @@ def circles(screen, color: tuple = (250, 0, 0), pos: tuple = (20, 20), size: int
         pygame.draw.circle(screen, color, pos, size)
         pos += pygame.Vector2(size + spacing, 0)  # Move para a direita (horizontalmente)
 
-
-
-NEGRITO = True
-ITALICO = True
-FONTE_TAMANHO = 40
-FONTE_NOME = 'arial'
-mensagem = 'ola teste !!!'
-
 def write(font_size:int=20, bold:bool=True, italic:bool=True, message:str='None', color_text:tuple=(250,0,0), posicao:tuple=(500,500)):
     '''21/01/2025
     Escreve na tela, de forma rápida
@@ -40,7 +32,7 @@ def write(font_size:int=20, bold:bool=True, italic:bool=True, message:str='None'
     texto_formatado = FONTE.render(message, True, color_text)
     text_rect = texto_formatado.get_rect(topleft=posicao)  # Posição do texto
 
-    if mensagem:
+    if message:
         return texto_formatado, text_rect
 
 import pygame
@@ -49,8 +41,13 @@ def image(name_image: str = 'image.png', pos_x: int = 0, pos_y: int = 0, width: 
     """
     Carrega, posiciona e redimensiona uma imagem. Retorna a imagem e seu retângulo ou mensagens de erro.
     Uso:
-    imagem, retangulo = image("image.png", pos_x=300, pos_y=300, width=200, height=200)
-    screen.blit(imagem, retangulo)
+    bola = image(name_image="images/bolinha.png", width=1000, height=550, pos_x=300, pos_y=300 ),
+    bola = bola[0]#removendo primeira tupla
+    reta = bola[1]#pegando primeiro valor
+    bola = bola[0] #pegando segundo valor
+
+    screen.blit(bola, reta)
+
     """
     
     if not isinstance(name_image, str) or not name_image:
@@ -69,11 +66,37 @@ def image(name_image: str = 'image.png', pos_x: int = 0, pos_y: int = 0, width: 
         if redimensionar:
             imagem_redimensionada = pygame.transform.scale(imagem, (width, height))
             return imagem_redimensionada, retangulo
-        
         return imagem, retangulo
     except pygame.error as e:
         return f"Erro ao carregar a imagem: {e}"
+
+
+class SaveConfigs():
+    def __init__(self, file, score):
+        self.file = '.'+file
+        self.score = score
+
+    def save_(self):
+        try:#tenta ler antes
+            with open(self.file, mode='r') as file:
+                context = file.read()
+                #pega o valor existente e soma
+                self.score+=int(context)
+
+            #salva novamente somado
+            with open(self.file, mode='w') as file:
+                file .write(f'{self.score}')
+
+        except:#se não existir cria
+            with open(self.file, mode='w') as file:
+                file.write(f'{self.score}')
+
+    def show_score_(self):
+        return self.score
     
 if __name__=='__main__':
-    ...
+    bola = image(name_image="images/bolinha.png", width=1000, height=550, pos_x=300, pos_y=300 ),
+    bola = bola[0]
+    reta = bola[1]
+    bola = bola[0] 
     
